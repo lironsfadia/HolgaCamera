@@ -8,6 +8,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
+  // tab not unmounted when switching between tabs
   return (
     <Tabs
       screenOptions={{
