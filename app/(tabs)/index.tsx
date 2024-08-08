@@ -2,8 +2,6 @@ import React from 'react';
 import { Text, Button, View } from 'react-native';
 import { Link, Stack } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import MarkdownDisplay from '@/components/MarkdownDisplay';
-import ImageComponent from '@/components/ImageComponent';
 import CustomizableButton from '../../ui/CustomizableButton';
 
 const description = `
@@ -39,8 +37,6 @@ const Home = () => {
           disabled={false}
           onPress={() => {}}
         />
-        <MarkdownDisplay>{description}</MarkdownDisplay>
-        {/* <ImageComponent path={'@/assets/images/holga.png'} /> */}
       </View>
       <Link href="/feed" asChild>
         <Button title="Go to feed" />

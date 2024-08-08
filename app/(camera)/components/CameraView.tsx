@@ -16,10 +16,12 @@ interface CameraViewProps {
   onStartRecording: () => void;
   isRecording: boolean;
   setCameraMode: (mode: 'camera' | 'qr') => void;
+  camera: any;
 }
 
 const CameraView = ({
   device,
+  camera,
   isActive,
   cameraMode,
   codeScanner,
@@ -33,11 +35,13 @@ const CameraView = ({
   return (
     <>
       <Camera
+        ref={camera}
         codeScanner={codeScanner}
         isActive={isActive && cameraMode === 'qr'}
         device={device}
       />
       <Camera
+        ref={camera}
         style={{ flex: 1 }}
         device={device}
         isActive={isActive && cameraMode === 'camera'}

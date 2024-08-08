@@ -7,7 +7,7 @@ import PhotoViewer from './components/PhotoViewer';
 import CameraView from './components/CameraView';
 
 const CameraScreen = () => {
-  const { device, isActive, photo, video, cameraMode, ...cameraProps } =
+  const { device, isActive, photo, video, cameraMode, camera, ...cameraProps } =
     CameraControls();
 
   if (!device) return <Text>Camera device not found</Text>;
@@ -25,6 +25,7 @@ const CameraScreen = () => {
       )}
       {!photo && !video && (
         <CameraView
+          camera={camera}
           device={device}
           isActive={isActive}
           cameraMode={cameraMode}

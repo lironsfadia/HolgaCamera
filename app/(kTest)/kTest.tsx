@@ -22,14 +22,13 @@ export default function App() {
     setTitle('omer');
   };
 
-  return (
-    <div className="App">
-      <h1>{title}</h1>
-      <h2>Start editing to see some magic happen!</h2>
-      <button style={styles}>this button</button>
-      {enrichNames.map(({ name, handleClick }) => (
-        <div onClick={handleClick}>{name}</div>
-      ))}
-    </div>
-  );
+  return null;
+  // <div className="App">
+  //   <h1>{title}</h1>
+  //   <h2>Start editing to see some magic happen!</h2>
+  //   <button style={styles}>this button</button>
+  //   {enrichNames.map(({ name, handleClick }) => (
+  //     <div onClick={handleClick}>{name}</div>
+  //   ))}
+  // </div>
 }

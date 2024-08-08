@@ -33,6 +33,7 @@ interface CameraControlsProps {
   codeScanner: ReturnType<typeof useCodeScanner>;
   setCameraMode: (mode: 'camera' | 'qr') => void;
   cameraMode: 'camera' | 'qr';
+  camera: React.MutableRefObject<Camera | null>;
 }
 
 const CameraControls = (): CameraControlsProps => {
@@ -71,13 +72,16 @@ const CameraControls = (): CameraControlsProps => {
   });
 
   const onTakePhotoPressed = async () => {
+    console.log('onTakePhotoPressed', isRecording);
     if (isRecording) {
       camera.current?.stopRecording();
       setIsRecording(false);
       setVideo(video);
     } else {
       const photo = await camera.current?.takePhoto({ flash: flashMode });
+      console.log('Photo taken:', photo);
       if (photo) {
+        console.log('Photo taken:');
         setPhoto(photo);
       }
     }
@@ -144,6 +148,7 @@ const CameraControls = (): CameraControlsProps => {
     codeScanner,
     setCameraMode,
     cameraMode,
+    camera,
   };
 };
 
