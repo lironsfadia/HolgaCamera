@@ -30,3 +30,5 @@ YourExpoProject/
 ├── babel.config.js
 ├── package.json
 └── tsconfig.json
+
+nativewind

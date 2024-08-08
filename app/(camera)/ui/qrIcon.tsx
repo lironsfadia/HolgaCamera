@@ -3,7 +3,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import React from 'react';
 
-const QrIcon = ({ onPress }) => {
+const QrIcon = ({ onPress }: any) => {
   return (
     <View style={styles}>
       <Ionicons

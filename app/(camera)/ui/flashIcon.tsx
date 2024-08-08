@@ -1,14 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import React, { useCallback, useMemo, useState } from 'react';
+import React from 'react';
 import { TakePhotoOptions } from 'react-native-vision-camera';
 import FlashControl from '../components/FlashControl';
 
-type FlashProps = {
+interface FlashProps {
   styles: any;
   mode: 'on' | 'off' | 'auto' | undefined;
   flashHandler: (mode: TakePhotoOptions['flash']) => void;
-};
+}
 
 const FlashIcon = ({ styles, mode, flashHandler }: FlashProps) => {
   const { flashIcon, onPress } = FlashControl({ mode, flashHandler });

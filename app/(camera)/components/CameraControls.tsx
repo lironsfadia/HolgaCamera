@@ -10,9 +10,32 @@ import {
   useCameraDevice,
   Camera,
   useCodeScanner,
+  CameraDevice,
 } from 'react-native-vision-camera';
 
-const CameraControls = () => {
+interface CameraControlsProps {
+  hasPermission: boolean;
+  requestPermission: () => void;
+  microphonePermission: boolean;
+  requestMicrophonePermission: () => void;
+  flashMode: TakePhotoOptions['flash'];
+  setFlashMode: (mode: TakePhotoOptions['flash']) => void;
+  isActive: boolean;
+  setIsActive: (active: boolean) => void;
+  photo: PhotoFile | null;
+  video: VideoFile | null;
+  setPhoto: (photo: PhotoFile | null) => void;
+  device: CameraDevice;
+  onTakePhotoPressed: () => void;
+  onStartRecording: () => void;
+  uploadPhoto: () => void;
+  isRecording: boolean;
+  codeScanner: ReturnType<typeof useCodeScanner>;
+  setCameraMode: (mode: 'camera' | 'qr') => void;
+  cameraMode: 'camera' | 'qr';
+}
+
+const CameraControls = (): CameraControlsProps => {
   const {
     hasPermission,
     requestPermission,
@@ -33,9 +56,10 @@ const CameraControls = () => {
   const [video, setVideo] = useState<VideoFile | null>(null);
   const [isRecording, setIsRecording] = useState(false);
   // telephoto-camera - is the default camera
-  const device = useCameraDevice('back', {
-    physicalDevices: ['ultra-wide-angle-camera'],
-  });
+  const device =
+    useCameraDevice('back', {
+      physicalDevices: ['ultra-wide-angle-camera'],
+    }) || null;
   const camera = useRef<Camera>(null);
   const [cameraMode, setCameraMode] = useState<'camera' | 'qr'>('camera');
 

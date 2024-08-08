@@ -12,7 +12,7 @@ const useData = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       try {
         const response = await axios.get('https://swapi.dev/api/people/');
         setData(response.data.results);
